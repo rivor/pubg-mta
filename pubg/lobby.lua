@@ -25,7 +25,6 @@ setElementData(lobby_dummy,"neededplayers",min_players);
 setElementData(lobby_dummy,"startsin",false);
 
 addEventHandler("lobby",root,function(skin)
-	if (not checkAuthorized()) then return; end
 	spawnPlayerTo(source,-135.5,-4302.1000976563,1.3999999761581,0,skin,0,false);
 	setElementData(source,"room","lobby");
 	-- col
@@ -37,7 +36,6 @@ addEventHandler("lobby",root,function(skin)
 end);
 
 addEventHandler("onPlayerJoin",root,function()
-	if (not checkAuthorized()) then return; end
 	if (getElementDimension(source) == 0) then
 		setElementData(lobby_dummy,"players",#getAlivePlayersInDimension(0));
 		if (getElementData(lobby_dummy,"startsin")) then return; end
@@ -46,7 +44,6 @@ addEventHandler("onPlayerJoin",root,function()
 end);
 
 addEventHandler("onPlayerQuit",root,function()
-	if (not checkAuthorized()) then return; end
 	local room = getElementData(source,"room");
 	if (room == "lobby") then
 		setElementData(lobby_dummy,"players",#getAlivePlayersInDimension(0)-1);
@@ -56,7 +53,6 @@ addEventHandler("onPlayerQuit",root,function()
 end);
 
 addEventHandler("exitplane",root,function()
-	if (not checkAuthorized()) then return; end
 	if (getElementData(source,"inplane") and getElementData(source,"canparachute")) then
 		setElementData(source,"inplane",false);
 		setElementData(source,"canparachute",false);
@@ -68,7 +64,6 @@ addEventHandler("exitplane",root,function()
 end);
 
 addEventHandler("returnToLobby",root,function()
-	if (not checkAuthorized()) then return; end
 	if (getElementData(source,"room") == "dead") then
 		removePlayerData(source)
 		setPlayerToMenuScreen(source);
@@ -173,7 +168,6 @@ function giveVipItems(player)
 end
 
 function startgame()
-	if (not checkAuthorized()) then return; end
 	if (isTimer(getElementData(lobby_dummy,"starttimer"))) then
 		killTimer(getElementData(lobby_dummy,"starttimer"));
 		setElementData(lobby_dummy,"starttimer",false);
@@ -235,7 +229,6 @@ function startgame()
 end
 
 function endgame(dimension,winnerplayer)
-	if (not checkAuthorized()) then return; end
 	setLootActive(dimension,false);
 	killPlayzoneTimer(dimension);
 	local winner = "{no winner}";
@@ -286,7 +279,6 @@ function endgame(dimension,winnerplayer)
 end
 
 addEventHandler("onElementDataChange",lobby_dummy,function(dataName,oldValue)
-	if (not checkAuthorized()) then return; end
 	if (dataName == "players") then
 		local players = getElementData(source,"players");
 		local neededplayers = getElementData(source,"neededplayers");
@@ -316,7 +308,6 @@ addEventHandler("onElementDataChange",lobby_dummy,function(dataName,oldValue)
 end);
 
 addCommandHandler("pb-start",function(source)
-	if (not checkAuthorized()) then return; end
 	if (getElementType(source) == "player") then
 		local serial = getPlayerSerial(source);
 		local allowedserial = allowed_serial;
@@ -329,7 +320,6 @@ addCommandHandler("pb-start",function(source)
 end);
 
 addCommandHandler("pb-starttimer",function(source)
-	if (not checkAuthorized()) then return; end
 	if (getElementType(source) == "player") then
 		local serial = getPlayerSerial(source);
 		local allowedserial = allowed_serial;
@@ -360,7 +350,6 @@ addCommandHandler("pb-starttimer",function(source)
 end);
 
 addCommandHandler("pb-end",function(source,cmd,dimension)
-	if (not checkAuthorized()) then return; end
 	if (dimension) then dimension = tonumber(dimension); end
 	if (getElementType(source) == "player") then
 		local serial = getPlayerSerial(source);
@@ -374,7 +363,6 @@ addCommandHandler("pb-end",function(source,cmd,dimension)
 end);
 
 addCommandHandler("pb-minplayers",function(source,cmd,minplayers)
-	if (not checkAuthorized()) then return; end
 	if (dimension) then dimension = tonumber(dimension); end
 	if (getElementType(source) == "player") then
 		local serial = getPlayerSerial(source);

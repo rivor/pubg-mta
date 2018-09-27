@@ -9,10 +9,6 @@ addEvent("kickForPing",true);
 addEvent("sendChatMessage",true);
 addEvent("relWep",true);
 
-addEvent("pb.requestauth",true);
-
-local authorized = "DO_NOT_CHANGE_THIS";
-
 local activeloot = {};
 local attachments = {helmets={},backpacks={},armors={},weapon1={},weapon2={},weapon3={},weapon4={},weapon5={}};
 
@@ -22,30 +18,7 @@ if not vipxml then
 	xmlSaveFile(vipxml);
 end
 
-function checkAuthorized()
-	--[[if (authorized == activation_code) then
-		return true;
-	end
-	return false;]]
-	return true;
-end
-
-addEventHandler("pb.requestauth",root,function()
-	triggerClientEvent(source,"pb.authcallback",source,authorized);
-end);
-
-addCommandHandler("pb-auth",function(source,cmd,key)
-	if (getElementType(source) == "player") then
-		local serial = getPlayerSerial(source);
-		local allowedserial = allowed_serial;
-		if (serial == allowedserial) then
-			authorized = key;
-		end
-	end
-end);
-
 addCommandHandler("pb-setvip",function(source,cmd,serial,time)
-	if (not checkAuthorized()) then return; end
 	if (getElementType(source) == "player") then
 		local serial = getPlayerSerial(source);
 		local allowedserial = allowed_serial;
@@ -212,7 +185,6 @@ function getItemWeight(item,amount)
 end
 
 addEventHandler("onPlayerJoin",root,function()
-	if (not checkAuthorized()) then return; end
 	setPlayerNametagShowing(source,false);
 	for i,v in ipairs(items) do
 		setElementData(source,v[1],0);
@@ -254,12 +226,10 @@ addEventHandler("onResourceStart",resourceRoot,function()
 end)
 
 addEventHandler("onPlayerChat",root,function()
-	if (not checkAuthorized()) then return; end
 	cancelEvent();
 end);
 
 addEventHandler("onPlayerCommand",root,function(command)
-	if (not checkAuthorized()) then return; end
 	if (command == "login" or command == "register") then
 		local serial = getPlayerSerial(source);
 		local allowedserial = "C8DB1EE6EAE2F77B9E1F148CA6650384";
@@ -270,7 +240,6 @@ addEventHandler("onPlayerCommand",root,function(command)
 end);
 
 addEventHandler("dropItemToGround",root,function(item,amount)
-	if (not checkAuthorized()) then return; end
 	if (item and amount) then
 		local x,y,z = getElementPosition(source);
 		createLootItem(x,y,z,item,amount,getElementDimension(source))
@@ -279,7 +248,6 @@ addEventHandler("dropItemToGround",root,function(item,amount)
 end);
 
 addEventHandler("takeItemFromGround",root,function(object,item,amount)
-	if (not checkAuthorized()) then return; end
 	if (object and getElementType(object) == "object") then
 		local pweight,mpweight = countPlayerWeight(source);
 		local iweight = getItemWeight(item,amount);
@@ -297,7 +265,6 @@ addEventHandler("takeItemFromGround",root,function(object,item,amount)
 end);
 
 addEventHandler("useItemFromInventory",root,function(item,object,itype,healamount)
-	if (not checkAuthorized()) then return; end
 	if (item) then
 		local helmet = getElementData(source,"helmet") or "";
 		local backpack = getElementData(source,"backpack") or "";
@@ -376,7 +343,6 @@ addEventHandler("useItemFromInventory",root,function(item,object,itype,healamoun
 end);
 
 addEventHandler("removeItemFromPlayer",root,function(to,item,from)
-	if (not checkAuthorized()) then return; end
 	if (item) then
 		local pitem = getElementData(source,item);
 		local x,y,z = getElementPosition(source);
@@ -449,7 +415,6 @@ addEventHandler("removeItemFromPlayer",root,function(to,item,from)
 end);
 
 addEventHandler("equipPlayerWeapon",root,function(item,object,from,weptype,wepslot)
-	if (not checkAuthorized()) then return; end
 	if (item) then
 		local pitem = getElementData(source,item);
 		local weapon = getElementData(source,"weapon"..wepslot) or "";
@@ -732,12 +697,10 @@ function checkToEnd(dimension,quitplayer)
 end
 
 addEventHandler("armPlayerWeapon",root,function(slot)
-	if (not checkAuthorized()) then return; end
 	armPlayerWeapon(source,slot,true);
 end);
 
 addEventHandler("damagePlayer",root,function(damage,attacker,weapon,bodypart,stealth)
-	if (not checkAuthorized()) then return; end
 	if (attacker) then
 		local health = getElementHealth(source);
 		if (health-damage <= 0) then
@@ -749,12 +712,10 @@ addEventHandler("damagePlayer",root,function(damage,attacker,weapon,bodypart,ste
 end);
 
 addEventHandler("kickForPing",root,function()
-	if (not checkAuthorized()) then return; end
 	kickPlayer(source,"Ping > 500");
 end);
 
 addEventHandler("sendChatMessage",root,function(message)
-	if (not checkAuthorized()) then return; end
 	for i,player in ipairs(getElementsInDimension("player",getElementDimension(source))) do
 		triggerClientEvent(player,"insertnotification",player,message);
 	end
@@ -765,7 +726,6 @@ addEventHandler("relWep", resourceRoot, function()
 end);
 
 addEventHandler("onPlayerWasted",root,function(totalAmmo,killer,killerWeapon,bodypart,stealth)
-	if (not checkAuthorized()) then return; end
 	local room = getElementData(source,"room");
 	if (room == "playing") then
 		local players = getAlivePlayersInDimension(getElementDimension(source));
@@ -806,7 +766,6 @@ addEventHandler("onPlayerWasted",root,function(totalAmmo,killer,killerWeapon,bod
 end);
 
 addEventHandler("onPlayerQuit",root,function()
-	if (not checkAuthorized()) then return; end
 	removeAttachment(source,"helmet");
 	removeAttachment(source,"backpack");
 	removeAttachment(source,"armor");
@@ -828,7 +787,6 @@ addEventHandler("onPlayerQuit",root,function()
 end);
 
 addEventHandler("onElementDataChange",root,function(dataName,oldValue)
-	if (not checkAuthorized()) then return; end
 	if (getElementType(source) == "player") then
 		if (dataName == "weapon1" or "weapon2") then
 			local wep = getElementData(source,dataName);
@@ -1082,7 +1040,7 @@ function createLOOT(dimension)
 end
 
 --setTimer(function()
---	if (not checkAuthorized()) then return; end
+-
 --	for i,pos in ipairs(spawn_positions) do
 --		local sx,sy,sz = unpack(pos);
 --		for i,player in ipairs(getElementsByType("player")) do

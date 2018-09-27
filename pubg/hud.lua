@@ -84,7 +84,6 @@ addEventHandler("onClientResourceStart",resourceRoot,function()
 end);
 
 addEventHandler("showkill",localPlayer,function(texttype,you,...)
-	if (not checkAuthorized()) then return; end
 	showkill = translateLocalization(texttype,nil,translateLocalization(you),...);
 	if isTimer(notifications["timer3"]) then killTimer(notifications["timer3"]); end
 	notifications["timer3"] = setTimer(function(translated)
@@ -93,7 +92,6 @@ addEventHandler("showkill",localPlayer,function(texttype,you,...)
 end);
 
 addEventHandler("insertnotification",localPlayer,function(texttype,...)
-	if (not checkAuthorized()) then return; end
 	local translated = translateLocalization(texttype,nil,...);
 	if (not translated) then translated = texttype; end
 	if (#notifications > 6) then table.remove(notifications,#notifications); end
@@ -117,7 +115,6 @@ addEventHandler("insertnotification",localPlayer,function(texttype,...)
 end);
 
 addEventHandler("onClientPreRender",root,function()
-	if (not checkAuthorized()) then return; end
 	local task = getPedTask(localPlayer, "secondary", 0);
 	local control = getPedControlState("aim_weapon");
 	if ((task == "TASK_SIMPLE_USE_GUN") and control) then
@@ -152,7 +149,6 @@ addEventHandler("onClientPreRender",root,function()
 end);
 
 addEventHandler("onClientCursorMove",root,function(rx, ry, x, y)
-	if (not checkAuthorized()) then return; end
 	if (not isCursorShowing()) then
 		local sx, sy = guiGetScreenSize();
 		anglex = (anglex + (x - sx / 2) / 10) % 360;
@@ -168,7 +164,6 @@ end)
 local heightDetector = sH*0.03;
 
 addEventHandler("onClientRender",root,function()
-	if (not checkAuthorized()) then return; end
 	local room = getElementData(localPlayer,"room");
 	if (room ~= "playing") then
 		if (getElementData(localPlayer,"inventory_visible")) then
@@ -537,7 +532,6 @@ addEventHandler("onClientRender",root,function()
 end);
 
 bindKey("mouse1","down",function()
-	if (not checkAuthorized()) then return; end
 	local room = getElementData(localPlayer,"room");
 	if (room == "menu") then
 		if (isCursorOnArea(0,0,sH*0.200,sH*0.100)) then
@@ -587,7 +581,6 @@ bindKey("mouse1","down",function()
 end);
 
 bindKey("f","down",function()
-	if (not checkAuthorized()) then return; end
 	if (getElementData(localPlayer,"inplane") and getElementData(localPlayer,"canparachute")) then
 		triggerServerEvent("exitplane",localPlayer);
 	end

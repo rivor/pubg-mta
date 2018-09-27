@@ -25,7 +25,6 @@ addEventHandler("onClientResourceStop",resourceRoot,function()
 end);
 
 function openInventory()
-	if (not checkAuthorized()) then return; end
 	if (exports.pb_map:isPlayerMapVisible()) then
 		exports.pb_map:setPlayerMapVisible(false);
 	end
@@ -38,7 +37,6 @@ function openInventory()
 end
 
 function closeInventory()
-	if (not checkAuthorized()) then return; end
 	setElementData(localPlayer,"inventory_visible",false);
 	toggleControl("fire",true);
 	toggleControl("aim_weapon",true);
@@ -175,14 +173,12 @@ function drawInventoryItems()
 end
 
 addEventHandler("onClientPreRender",root,function()
-	if (not checkAuthorized()) then return; end
 	if (getElementData(localPlayer,"inventory_visible")) then
 		dxDrawRectangle(0,0,sW,sH,tocolor(0,0,0,200),true);
 	end
 end);
 
 addEventHandler("onClientRender",root,function()
-	if (not checkAuthorized()) then return; end
 	if (getPedWeapon(localPlayer,11) == 46) then setPedWeaponSlot(localPlayer,11); end
 	if (getElementData(localPlayer,"inventory_visible")) then
 		-- player name
@@ -543,7 +539,6 @@ function disableDrag()
 end
 
 bindKey("mouse1","both",function(_,state)
-	if (not checkAuthorized()) then return; end
 	if (getElementData(localPlayer,"inventory_visible")) then
 		if (healing.item and healing.timer) then return; end
 		if (state == "down") then
@@ -685,7 +680,6 @@ bindKey("mouse1","both",function(_,state)
 end)
 
 bindKey("mouse2","down",function()
-	if (not checkAuthorized()) then return; end
 	if (getElementData(localPlayer,"inventory_visible")) then
 		if (splt.active) then return; end
 		if (healing.item and healing.timer) then return; end
@@ -789,7 +783,6 @@ bindKey("mouse2","down",function()
 end);
 
 bindKey("f","down",function()
-	if (not checkAuthorized()) then return; end
 	if (healing.item and isTimer(healing.timer)) then
 		setPedAnimation(localPlayer,nil,nil);
 		killTimer(healing.timer);
@@ -800,7 +793,6 @@ bindKey("f","down",function()
 end);
 
 function selectWeapon(key)
-	if (not checkAuthorized()) then return; end
 	if (isPedInVehicle(localPlayer) or exports.pb_map:isPlayerMapVisible()) then return; end
 	if (getPedWeapon(localPlayer,11) == 46) then return setPedWeaponSlot(localPlayer,11); end
 	if (getPedControlState("aim_weapon")) then return; end

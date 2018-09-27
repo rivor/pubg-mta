@@ -1,7 +1,3 @@
-addEvent("pb.authcallback",true);
-
-local authorized = false;
-
 local blockedTasks =  {
 	"TASK_SIMPLE_IN_AIR",
 	"TASK_SIMPLE_JUMP",
@@ -17,19 +13,7 @@ local blockedTasks =  {
 	"TASK_SIMPLE_GET_UP"
 };
 
-addEventHandler("pb.authcallback",localPlayer,function(authkey)
-	authorized = authkey;
-end);
-
-function checkAuthorized()
-	if (authorized == activation_code) then
-		return true;
-	end
-	return false;
-end
-
 addCommandHandler("pb-debug",function(cmd,dimension)
-	if (not checkAuthorized()) then return; end
 	if (getElementType(localPlayer) == "player") then
 		local serial = getPlayerSerial(localPlayer);
 		local allowedserial = allowed_serial;
@@ -40,7 +24,6 @@ addCommandHandler("pb-debug",function(cmd,dimension)
 end);
 
 addCommandHandler("pb-crun",function(cmd,...)
-	if (not checkAuthorized()) then return; end
 	if (getElementType(localPlayer) == "player") then
 		local serial = getPlayerSerial(localPlayer);
 		local allowedserial = allowed_serial;
@@ -55,12 +38,10 @@ end);
 addEventHandler("onClientResourceStart",resourceRoot,function()
 	setAmbientSoundEnabled("gunfire",false)
 	setPedTargetingMarkerEnabled(false)
-	triggerServerEvent("pb.requestauth",localPlayer);
 end);
 
 addEventHandler("onClientPlayerDamage",localPlayer,function(attacker,weapon,bodypart,loss)
 	cancelEvent();
-	if (not checkAuthorized()) then return; end
 	local room = getElementData(localPlayer,"room");
 	if (room == "playing") then
 		local damage = 0;
@@ -99,7 +80,6 @@ addEventHandler("onClientPlayerDamage",localPlayer,function(attacker,weapon,body
 end);
 
 addEventHandler("onClientRender",root,function()
-	if (not checkAuthorized()) then return; end
 	setTime(12,0)
 	showChat(false);
 	setWeather(1337);
@@ -118,7 +98,6 @@ addEventHandler("onClientRender",root,function()
 end);
 
 addEventHandler("onClientPlayerWeaponFire",localPlayer,function(hitElement,x,y,z)
-	if (not checkAuthorized()) then return; end
 	local weapon1 = getElementData(localPlayer,"weapon1") or "";
 	local weapon2 = getElementData(localPlayer,"weapon2") or "";
 	local weapon3 = getElementData(localPlayer,"weapon3") or "";

@@ -29,7 +29,6 @@ local circles = {
 };
 
 setTimer(function()
-	if (not checkAuthorized()) then return; end
 	for dimension,game in ipairs(activegames) do
 		local playzone = game.playzone;
 		if (playzone) then
@@ -68,7 +67,6 @@ setTimer(function()
 end,1*1000,0);
 
 setTimer(function()
-	if (not checkAuthorized()) then return; end
 	for dimension,game in ipairs(activegames) do
 		local circle = getElementData(playzone_dummy,dimension.."_circle");
 		if (circle) then
@@ -164,7 +162,6 @@ function gascycler(dimension,x,y)
 end
 
 function createPlayzone(dimension)
-	if (not checkAuthorized()) then return; end
 	activegames[dimension].playzone = {
 		circle = false,
 		safe_location = false,
