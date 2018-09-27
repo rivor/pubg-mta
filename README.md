@@ -9,4 +9,4 @@ PUBG Gamemode for Multi Theft Auto
 - pb-setvip {serial} {days} | Give vip to someone, by serial
 
 # Credits
-Created by kaasis a.k.a rivor and also known as Fist in MTA Forum Community and few resources that were used, credits goes obviously to original owners.
+Created by kaasis a.k.a rivor and also known as Fist in MTA Forum Community and few resources that were used, credits goes obviously to original owners. 
