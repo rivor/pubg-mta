@@ -1,0 +1,29 @@
+<meta>
+	<info name="pubg map" version="0.6" type="misc" author="Gamesnert & kaasis" description="pubg map"/>
+
+	<script src="map.lua" type="client" cache="false"/>
+	<script src="controlstates.lua" type="client" cache="false"/>
+
+	<export function="isPlayerMapVisible" type="client"/>
+	<export function="getPlayerMapBoundingBox" type="client"/>
+	<export function="getPlayerMapImage" type="client"/>
+	<export function="setPlayerMapBoundingBox" type="client"/>
+	<export function="setPlayerMapVisible" type="client"/>
+	<export function="getMapFromWorldPosition" type="client"/>
+	<export function="getWorldFromMapPosition" type="client"/>
+	<export function="setPlayerMapImage" type="client"/>
+	<export function="setPlayerMapColor" type="client"/>
+	<export function="getPlayerMapColor" type="client"/>
+	<export function="getPlayerMapMovementSpeed" type="client"/>
+	<export function="setPlayerMapMovementSpeed" type="client"/>
+	<export function="getPlayerMapZoomFactor" type="client"/>
+	<export function="setPlayerMapZoomFactor" type="client"/>
+	<export function="getPlayerMapZoomRate" type="client"/>
+	<export function="setPlayerMapZoomRate" type="client"/>
+	<export function="getPlayerMapMinZoomLimit" type="client"/>
+	<export function="setPlayerMapMinZoomLimit" type="client"/>
+	<export function="getPlayerMapMaxZoomLimit" type="client"/>
+	<export function="setPlayerMapMaxZoomLimit" type="client"/>
+	<export function="setBlipShowingOnMaximap" type="client"/>
+	<export function="getBlipShowingOnMaximap" type="client"/>
+</meta>

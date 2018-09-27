@@ -1,0 +1,90 @@
+<meta>
+	<info author="kaasis" description="pubg" version="0.1r1-beta" type="gamemode" />
+	<min_mta_version client="1.5" server="1.5" />
+
+	<script src="items.lua" type="server" />
+	<script src="items.lua" type="client" cache="false" />
+
+	<script src="scripts/translation.lua" type="client" cache="false" />
+	<script src="scripts/translation.lua" type="server" />
+	<script src="scripts/utils.lua" type="client" cache="false" />
+	<script src="scripts/utils.lua" type="server" />
+	<script src="scripts/async.lua" type="client" cache="false" />
+	<script src="scripts/async.lua" type="server" />
+
+	<script src="positions.lua" type="server" />
+	<script src="system.lua" type="server" />
+	<script src="lobby.lua" type="server" />
+	<script src="playzone.lua" type="server" />
+	<script src="inventory.lua" type="client" cache="false" />
+	<script src="client.lua" type="client" cache="false" />
+	<script src="hud.lua" type="client" cache="false" />
+
+	<map src="map/menu.map" dimension="0" />
+	<map src="map/lobby.map" dimension="0" />
+
+	<file src="readme.txt" />
+
+	<file src="fonts/Roboto-Bold.ttf" />
+	<file src="fonts/Roboto-Regular.ttf" />
+	<file src="fonts/BebasNeue.otf" />
+
+	<file src="images/language.png" />
+	<file src="images/map.jpg" />
+	<file src="images/wall.png" />
+	<file src="images/hud/play1.png" />
+	<file src="images/hud/play2.png" />
+	<file src="images/hud/logo.png" />
+	<file src="images/hud/compass.png" />
+	<file src="images/hud/arrow.png" />
+	<file src="images/hud/bullet.png" />
+	<file src="images/hud/runner.png" />
+	<file src="images/hud/p_circle.png" />
+	<file src="images/hud/p_location.png" />
+	<file src="images/hud/weapons/ak47.png" />
+	<file src="images/hud/weapons/awm.png" />
+	<file src="images/hud/weapons/colt45.png" />
+	<file src="images/hud/weapons/crowbar.png" />
+	<file src="images/hud/weapons/kar98k.png" />
+	<file src="images/hud/weapons/m16a4.png" />
+	<file src="images/hud/weapons/machete.png" />
+	<file src="images/hud/weapons/shotgun.png" />
+	<file src="images/hud/weapons/uzi.png" />
+	<file src="images/hud/weapons/mp5.png" />
+	<file src="images/hud/weapons/molotov.png" />
+	<file src="images/hud/weapons/grenade.png" />
+	<file src="images/hud/weapons/pan.png" />
+	<file src="images/inventory/bar.png" />
+	<file src="images/inventory/icons/ak47.png" />
+	<file src="images/inventory/icons/awm.png" />
+	<file src="images/inventory/icons/colt45.png" />
+	<file src="images/inventory/icons/crowbar.png" />
+	<file src="images/inventory/icons/kar98k.png" />
+	<file src="images/inventory/icons/m16a4.png" />
+	<file src="images/inventory/icons/machete.png" />
+	<file src="images/inventory/icons/shotgun.png" />
+	<file src="images/inventory/icons/uzi.png" />
+	<file src="images/inventory/icons/mp5.png" />
+	<file src="images/inventory/icons/molotov.png" />
+	<file src="images/inventory/icons/grenade.png" />
+	<file src="images/inventory/icons/pan.png" />
+	<file src="images/inventory/icons/ammo_9mm.png" />
+	<file src="images/inventory/icons/ammo_762mm.png" />
+	<file src="images/inventory/icons/ammo_12gauge.png" />
+	<file src="images/inventory/icons/ammo_556mm.png" />
+	<file src="images/inventory/icons/armor1.png" />
+	<file src="images/inventory/icons/armor2.png" />
+	<file src="images/inventory/icons/armor3.png" />
+	<file src="images/inventory/icons/helmet1.png" />
+	<file src="images/inventory/icons/helmet2.png" />
+	<file src="images/inventory/icons/helmet3.png" />
+	<file src="images/inventory/icons/backpack_small.png" />
+	<file src="images/inventory/icons/backpack_medium.png" />
+	<file src="images/inventory/icons/backpack_large.png" />
+	<file src="images/inventory/icons/bandage.png" />
+	<file src="images/inventory/icons/energy_drink.png" />
+	<file src="images/inventory/icons/first_aid.png" />
+	<file src="images/inventory/icons/jerrycan.png" />
+	<file src="images/inventory/icons/medkit.png" />
+	<file src="images/inventory/icons/painkiller.png" />
+</meta>

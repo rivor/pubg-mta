@@ -1,0 +1,38 @@
+<meta>
+	<info author="kaasis" description="pubg models" version="0.1" />
+	<min_mta_version client="1.5" server="1.5" />
+
+	<script src="loader.lua" type="client" cache="false" />
+
+	<file src="models/helmet1.dff" />
+	<file src="models/helmet1.txd" />
+	<file src="models/helmet2.dff" />
+	<file src="models/helmet2.txd" />
+	<file src="models/helmet3.dff" />
+	<file src="models/helmet3.txd" />
+	<file src="models/armor1.dff" />
+	<file src="models/armor1.txd" />
+	<file src="models/armor2.dff" />
+	<file src="models/armor2.txd" />
+	<file src="models/armor3.dff" />
+	<file src="models/armor3.txd" />
+	<file src="models/backpack_small.dff" />
+	<file src="models/backpack_small.txd" />
+	<file src="models/backpack_medium.dff" />
+	<file src="models/backpack_medium.txd" />
+	<file src="models/backpack_large.dff" />
+	<file src="models/backpack_large.txd" />
+	<file src="models/awm.dff" />
+	<file src="models/awm.txd" />
+	<file src="models/crowbar.dff" />
+	<file src="models/crowbar.txd" />
+	<file src="models/m16a4.dff" />
+	<file src="models/m16a4.txd" />
+	<file src="models/machete.dff" />
+	<file src="models/machete.txd" />
+	<file src="models/pan.dff" />
+	<file src="models/pan.txd" />
+	<file src="models/lobby.col" />
+	<file src="models/lobby.dff" />
+	<file src="models/lobby.txd" />
+</meta>

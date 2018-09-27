@@ -1,0 +1,24 @@
+<meta>
+	<info name="Object Preview" author="Ren712" type="script" version="0.6.7" />
+	<min_mta_version client="1.5.0" server="1.5.0" />
+	<script src="c_main.lua"  type="client"  />
+	<script src="c_exported_functions.lua"  type="client"  cache="false" />
+	<script src="c_helper_functions.lua"  type="client"  cache="false" />
+	<file src="fx/fx_pre_vehicle.fx" type="client" cache="false" />
+	<file src="fx/fx_pre_ped.fx" type="client" cache="false" />
+	<file src="fx/fx_pre_object.fx" type="client" cache="false" />
+	<file src="fx/fx_pre_vehicle_noMRT.fx" type="client" cache="false" />
+	<file src="fx/fx_pre_ped_noMRT.fx" type="client" cache="false" />
+	<file src="fx/fx_pre_object_noMRT.fx" type="client" cache="false" />
+	<export function="createObjectPreview" type="client" />
+	<export function="getRenderTarget" type="client" />
+	<export function="destroyObjectPreview" type="client" />
+	<export function="saveRTToFile" type="client" />
+	<export function="setRotation" type="client" />
+	<export function="setProjection" type="client" />
+	<export function="setDistanceSpread" type="client" />
+	<export function="setPositionOffsets" type="client" />
+	<export function="setRotationOffsets" type="client" />
+	<export function="setRenderPostGui" type="client" />
+	<export function="setAlpha" type="client" />
+</meta>
