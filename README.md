@@ -8,7 +8,7 @@ PUBG Gamemode for Multi Theft Auto
 - pb-minplayers {players} | Change minimum required players for lobby to start
 - pb-setvip {serial} {days} | Give vip to someone, by serial
 
-- DO GET ACCESS TO THESE COMMANDS YOU NEED TO OPEN "serial.lua" FILE AND PLACE YOUR SERIAL THERE, SO YOU CAN USE THESE COMMANDS!
+- TO GET ACCESS TO THESE COMMANDS YOU NEED TO OPEN "serial.lua" FILE AND PLACE YOUR SERIAL THERE, SO YOU CAN USE THESE COMMANDS!
 
 # Credits
 Created by kaasis a.k.a rivor and also known as Fist in MTA Forum Community and few resources that were used, credits goes obviously to original owners. 
