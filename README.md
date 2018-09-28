@@ -11,4 +11,4 @@ PUBG Gamemode for Multi Theft Auto
 - DO GET ACCESS TO THESE COMMANDS YOU NEED TO OPEN "serial.lua" FILE AND PLACE YOUR SERIAL THERE, SO YOU CAN USE THESE COMMANDS!
 
 # Credits
-Created by kaasis a.k.a rivor and also known as Fist in MTA Forum Community and few resources that were used, credits goes obviously to original owners.
+Created by kaasis a.k.a rivor and also known as Fist in MTA Forum Community and few resources that were used, credits goes obviously to original owners. 

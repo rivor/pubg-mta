@@ -26,8 +26,6 @@
 	<map src="map/menu.map" dimension="0" />
 	<map src="map/lobby.map" dimension="0" />
 
-	<file src="readme.txt" />
-
 	<file src="fonts/Roboto-Bold.ttf" />
 	<file src="fonts/Roboto-Regular.ttf" />
 	<file src="fonts/BebasNeue.otf" />
