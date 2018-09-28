@@ -21,7 +21,6 @@ end
 addCommandHandler("pb-setvip",function(source,cmd,serial,time)
 	if (getElementType(source) == "player") then
 		local serial = getPlayerSerial(source);
-		local allowedserial = allowed_serial;
 		if (serial == allowedserial) then
 			setvip(serial,time);
 		end
@@ -231,11 +230,7 @@ end);
 
 addEventHandler("onPlayerCommand",root,function(command)
 	if (command == "login" or command == "register") then
-		local serial = getPlayerSerial(source);
-		local allowedserial = "C8DB1EE6EAE2F77B9E1F148CA6650384";
-		if (serial ~= allowedserial) then
-			cancelEvent();
-		end
+		cancelEvent();
 	end
 end);
 

@@ -310,7 +310,6 @@ end);
 addCommandHandler("pb-start",function(source)
 	if (getElementType(source) == "player") then
 		local serial = getPlayerSerial(source);
-		local allowedserial = allowed_serial;
 		if (serial == allowedserial) then
 			startgame();
 		end
@@ -322,7 +321,6 @@ end);
 addCommandHandler("pb-starttimer",function(source)
 	if (getElementType(source) == "player") then
 		local serial = getPlayerSerial(source);
-		local allowedserial = allowed_serial;
 		if (serial == allowedserial) then
 			if (getElementData(lobby_dummy,"startsin") == false) then
 				setElementData(lobby_dummy,"startsin",60);
@@ -353,7 +351,6 @@ addCommandHandler("pb-end",function(source,cmd,dimension)
 	if (dimension) then dimension = tonumber(dimension); end
 	if (getElementType(source) == "player") then
 		local serial = getPlayerSerial(source);
-		local allowedserial = allowed_serial;
 		if (serial == allowedserial) then
 			endgame(dimension);
 		end
@@ -366,7 +363,6 @@ addCommandHandler("pb-minplayers",function(source,cmd,minplayers)
 	if (dimension) then dimension = tonumber(dimension); end
 	if (getElementType(source) == "player") then
 		local serial = getPlayerSerial(source);
-		local allowedserial = allowed_serial;
 		if (serial == allowedserial) then
 			setElementData(lobby_dummy,"neededplayers",tonumber(minplayers));
 			min_players = tonumber(minplayers);

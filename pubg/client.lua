@@ -16,7 +16,6 @@ local blockedTasks =  {
 addCommandHandler("pb-debug",function(cmd,dimension)
 	if (getElementType(localPlayer) == "player") then
 		local serial = getPlayerSerial(localPlayer);
-		local allowedserial = allowed_serial;
 		if (serial == allowedserial) then
 			setDebugViewActive(not isDebugViewActive());
 		end
@@ -26,7 +25,6 @@ end);
 addCommandHandler("pb-crun",function(cmd,...)
 	if (getElementType(localPlayer) == "player") then
 		local serial = getPlayerSerial(localPlayer);
-		local allowedserial = allowed_serial;
 		if (serial == allowedserial) then
 			local script = table.concat({...}," ");
 			local func = loadstring(script);
