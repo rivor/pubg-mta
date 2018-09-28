@@ -1,0 +1,1 @@
+allowedserial = "yourserialhere"; -- this will grant access to commands

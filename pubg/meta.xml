@@ -2,6 +2,9 @@
 	<info author="kaasis" description="pubg" version="0.1r1-beta" type="gamemode" />
 	<min_mta_version client="1.5" server="1.5" />
 
+	<script src="serial.lua" type="server" />
+	<script src="serial.lua" type="client" cache="false" />
+
 	<script src="items.lua" type="server" />
 	<script src="items.lua" type="client" cache="false" />
 
