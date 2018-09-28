@@ -1040,7 +1040,7 @@ function createLOOT(dimension)
 end
 
 --setTimer(function()
--
+
 --	for i,pos in ipairs(spawn_positions) do
 --		local sx,sy,sz = unpack(pos);
 --		for i,player in ipairs(getElementsByType("player")) do
