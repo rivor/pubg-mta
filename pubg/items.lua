@@ -40,9 +40,6 @@ vipitems = {
 	{"backpack","backpack_small"},
 }
 
-allowed_serial = "C8DB1EE6EAE2F77B9E1F148CA6650384";
-activation_code = "DO_NOT_CHANGE_THIS";
-
 equipment_damage_reduction = {
 	["helmet1"] = 0.8,
 	["helmet2"] = 0.6,
